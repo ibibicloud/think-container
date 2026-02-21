@@ -4,7 +4,7 @@
 
 ### 安装
 ~~~
-composer require ibibicloud/tp5-container
+composer require ibibicloud/think-container
 ~~~
 
 ### Container 用法

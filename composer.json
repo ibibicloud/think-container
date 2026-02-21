@@ -1,5 +1,5 @@
 {
-    "name": "ibibicloud/tp5-container",
+    "name": "ibibicloud/think-container",
     "type": "library",
     "license": "Apache-2.0",
     "require": {
