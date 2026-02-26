@@ -2,14 +2,11 @@
 
 namespace think;
 
+/**
+ * Facade管理类
+ */
 class Facade
 {
-    /**
-     * 绑定对象
-     * @var array
-     */
-    protected static $bind = [];
-
     /**
      * 始终创建新的对象实例
      * @var bool
@@ -17,36 +14,15 @@ class Facade
     protected static $alwaysNewInstance;
 
     /**
-     * 绑定类的静态代理
-     * @static
-     * @access public
-     * @param  string|array  $name    类标识
-     * @param  string        $class   类名
-     * @return object
-     */
-    public static function bind($name, $class = null)
-    {
-        if (__CLASS__ != static::class) {
-            return self::__callStatic('bind', func_get_args());
-        }
-
-        if (is_array($name)) {
-            self::$bind = array_merge(self::$bind, $name);
-        } else {
-            self::$bind[$name] = $class;
-        }
-    }
-
-    /**
      * 创建Facade实例
      * @static
      * @access protected
-     * @param  string    $class          类名或标识
-     * @param  array     $args           变量
-     * @param  bool      $newInstance    是否每次创建新的实例
+     * @param  string $class       类名或标识
+     * @param  array  $args        变量
+     * @param  bool   $newInstance 是否每次创建新的实例
      * @return object
      */
-    protected static function createFacade($class = '', $args = [], $newInstance = false)
+    protected static function createFacade(string $class = '', array $args = [], bool $newInstance = false)
     {
         $class = $class ?: static::class;
 
@@ -54,8 +30,6 @@ class Facade
 
         if ($facadeClass) {
             $class = $facadeClass;
-        } elseif (isset(self::$bind[$class])) {
-            $class = self::$bind[$class];
         }
 
         if (static::$alwaysNewInstance) {
@@ -66,17 +40,18 @@ class Facade
     }
 
     /**
-     * 获取当前Facade对应类名（或者已经绑定的容器对象标识）
+     * 获取当前Facade对应类名
      * @access protected
      * @return string
      */
     protected static function getFacadeClass()
-    {}
+    {
+    }
 
     /**
      * 带参数实例化当前Facade类
      * @access public
-     * @return mixed
+     * @return object
      */
     public static function instance(...$args)
     {
@@ -88,12 +63,12 @@ class Facade
     /**
      * 调用类的实例
      * @access public
-     * @param  string        $class          类名或者标识
-     * @param  array|true    $args           变量
-     * @param  bool          $newInstance    是否每次创建新的实例
-     * @return mixed
+     * @param  string     $class       类名或者标识
+     * @param  array|true $args        变量
+     * @param  bool       $newInstance 是否每次创建新的实例
+     * @return object
      */
-    public static function make($class, $args = [], $newInstance = false)
+    public static function make(string $class, $args = [], $newInstance = false)
     {
         if (__CLASS__ != static::class) {
             return self::__callStatic('make', func_get_args());

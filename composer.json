@@ -3,7 +3,9 @@
     "type": "library",
     "license": "Apache-2.0",
     "require": {
-    	"php": ">=7.2.0"
+    	"php": ">=8.0.2",
+        "psr/container": "^2.0",
+        "ibibicloud/think-helper":"8.*"
     },   
     "autoload": {
         "psr-4": {

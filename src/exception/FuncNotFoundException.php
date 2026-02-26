@@ -6,9 +6,9 @@ use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
 use Throwable;
 
-class ClassNotFoundException extends RuntimeException implements NotFoundExceptionInterface
+class FuncNotFoundException extends RuntimeException implements NotFoundExceptionInterface
 {
-    public function __construct(string $message, protected string $class = '', ?Throwable $previous = null)
+    public function __construct(string $message, protected string $func = '', ?Throwable $previous = null)
     {
         $this->message = $message;
 
@@ -16,12 +16,12 @@ class ClassNotFoundException extends RuntimeException implements NotFoundExcepti
     }
 
     /**
-     * 获取类名
+     * 获取方法名
      * @access public
      * @return string
      */
-    public function getClass()
+    public function getFunc()
     {
-        return $this->class;
+        return $this->func;
     }
 }
