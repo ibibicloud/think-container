@@ -1,14 +1,17 @@
-PHP Container & Facade Manager( Support PSR-11)
-===============
 
+## PHP Container & Facade Manager ( Support PSR-11 )
+基于版本 https://github.com/top-think/think-container/tree/v3.0.2
 
-## 安装
+容器文档 https://doc.thinkphp.cn/v8_0/dependency_injection.html
+
+门面文档 https://doc.thinkphp.cn/v8_0/facade.html
+
+### 安装
 ~~~
-composer require topthink/think-container
+composer require ibibicloud/think-container
 ~~~
 
 ## 特性
-
 * 支持PSR-11规范
 * 支持依赖注入
 * 支持Facade门面
@@ -16,7 +19,7 @@ composer require topthink/think-container
 * 支持闭包绑定
 * 支持接口绑定
 
-## Container
+### Container
 ~~~
 // 获取容器实例
 $container = \think\Container::getInstance();
@@ -52,23 +55,23 @@ $container->cache;
 unset($container->cache);
 ~~~
 
-## Facade
-
-
-定义一个`app\facade\App`类之后，即可以静态方式调用`\think\App`类的动态方法
+### Facade 用法
+你的 App 类
 ~~~
 <?php
 namespace think;
 class App 
 {
 	public function name(){
-		return 'app';
+        return '我自己的App类库';
 	}
 }
 ~~~
 
+定义一个 app\facade\App 类
 ~~~
 <?php
+
 namespace app\facade;
 
 use think\Facade;
@@ -82,7 +85,7 @@ class App extends Facade
      */
     protected static function getFacadeClass()
     {
-	return '\think\App';
+        return '\think\App';
     }
 }
 ~~~
@@ -90,6 +93,7 @@ class App extends Facade
 然后就可以静态方式调用动态方法了
 ~~~
 use app\facade\App;
-
-echo App::name(); // app
+~~~
+~~~
+echo App::name(); // 输出：我自己的App类库
 ~~~

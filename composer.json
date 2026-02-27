@@ -4,7 +4,7 @@
     "license": "Apache-2.0",
     "require": {
     	"php": ">=8.0.2",
-        "psr/container": "^2.0",
+        "psr/container": "2.*",
         "ibibicloud/think-helper":"8.*"
     },   
     "autoload": {
