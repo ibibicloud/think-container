@@ -10,7 +10,6 @@ use Closure;
 use Countable;
 use InvalidArgumentException;
 use IteratorAggregate;
-use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionFunction;
@@ -27,7 +26,7 @@ use Traversable;
 /**
  * 容器管理类 支持PSR-11
  */
-class Container implements ContainerInterface, ArrayAccess, IteratorAggregate, Countable
+class Container implements ArrayAccess, IteratorAggregate, Countable
 {
     /**
      * 容器对象实例

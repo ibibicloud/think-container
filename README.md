@@ -1,5 +1,5 @@
 
-## PHP Container & Facade Manager ( Support PSR-11 )
+## PHP Container & Facade Manager
 基于版本 https://github.com/top-think/think-container/tree/v3.0.2
 
 容器文档 https://doc.thinkphp.cn/v8_0/dependency_injection.html
@@ -11,8 +11,7 @@
 composer require ibibicloud/think-container
 ~~~
 
-## 特性
-* 支持PSR-11规范
+### 特性
 * 支持依赖注入
 * 支持Facade门面
 * 支持容器对象绑定
