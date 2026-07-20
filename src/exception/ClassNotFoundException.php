@@ -23,4 +23,5 @@ class ClassNotFoundException extends RuntimeException
     {
         return $this->class;
     }
+    
 }

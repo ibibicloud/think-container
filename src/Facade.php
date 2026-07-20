@@ -45,8 +45,7 @@ class Facade
      * @return string
      */
     protected static function getFacadeClass()
-    {
-    }
+    {}
 
     /**
      * 带参数实例化当前Facade类
@@ -88,4 +87,5 @@ class Facade
     {
         return call_user_func_array([static::createFacade(), $method], $params);
     }
+    
 }

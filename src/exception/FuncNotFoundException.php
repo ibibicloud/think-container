@@ -23,4 +23,5 @@ class FuncNotFoundException extends RuntimeException
     {
         return $this->func;
     }
+    
 }
